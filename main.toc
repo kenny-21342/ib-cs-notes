@@ -1,0 +1,63 @@
+\babel@toc {nil}{}\relax 
+\contentsline {section}{\numberline {A}Concepts of Computer Science}{4}{section.1}%
+\contentsline {subsection}{\numberline {A1}Computer fundamentals}{4}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {A1.1}Computer hardware and operation}{4}{subsubsection.1.1.1}%
+\contentsline {paragraph}{\numberline {A1.1.1}Function and interaction of the main CPU components}{4}{paragraph.1.1.1.1}%
+\contentsline {paragraph}{\numberline {A1.1.2}Role of GPU}{5}{paragraph.1.1.1.2}%
+\contentsline {paragraph}{\numberline {A1.1.3}Difference between CPU and GPU}{5}{paragraph.1.1.1.3}%
+\contentsline {paragraph}{\numberline {A1.1.4}Purposes of different types of primary memory}{6}{paragraph.1.1.1.4}%
+\contentsline {paragraph}{\numberline {A1.1.5}FDE cycle}{7}{paragraph.1.1.1.5}%
+\contentsline {paragraph}{\numberline {A1.1.6}Pipelining in multi-core architectures}{9}{paragraph.1.1.1.6}%
+\contentsline {paragraph}{\numberline {A1.1.7}Internal and external types of secondary memory storage}{9}{paragraph.1.1.1.7}%
+\contentsline {paragraph}{\numberline {A1.1.8}Compression}{10}{paragraph.1.1.1.8}%
+\contentsline {paragraph}{\numberline {A1.1.9}Type of services in cloud implementation}{10}{paragraph.1.1.1.9}%
+\contentsline {subsubsection}{\numberline {A1.2}Data representation and computer logic}{11}{subsubsection.1.1.2}%
+\contentsline {paragraph}{\numberline {A1.2.1}Principal methods of representing data}{11}{paragraph.1.1.2.1}%
+\contentsline {paragraph}{\numberline {A1.2.2}How binary is used to store data}{12}{paragraph.1.1.2.2}%
+\contentsline {paragraph}{\numberline {A1.2.3}Purpose and use of logic gates}{16}{paragraph.1.1.2.3}%
+\contentsline {paragraph}{\numberline {A1.2.4}Constructing and analysing truth tables}{16}{paragraph.1.1.2.4}%
+\contentsline {paragraph}{\numberline {A1.2.5}Constructing logic diagrams}{20}{paragraph.1.1.2.5}%
+\contentsline {subsubsection}{\numberline {A1.3}Operating systems and control systems}{20}{subsubsection.1.1.3}%
+\contentsline {paragraph}{\numberline {A1.3.1}The role of operating systems}{20}{paragraph.1.1.3.1}%
+\contentsline {paragraph}{\numberline {A1.3.2}Functions of an operating system}{20}{paragraph.1.1.3.2}%
+\contentsline {paragraph}{\numberline {A1.3.3}Approaches for scheduling}{27}{paragraph.1.1.3.3}%
+\contentsline {paragraph}{\numberline {A1.3.4}Interrupt handling and polling}{28}{paragraph.1.1.3.4}%
+\contentsline {paragraph}{\numberline {A1.3.5}The role of the operating system in managing multitasking and resource allocation}{30}{paragraph.1.1.3.5}%
+\contentsline {paragraph}{\numberline {A1.3.6}The use of control system components}{32}{paragraph.1.1.3.6}%
+\contentsline {paragraph}{\numberline {A1.3.7}The uses of control systems}{34}{paragraph.1.1.3.7}%
+\contentsline {subsubsection}{\numberline {A1.4}Translation}{35}{subsubsection.1.1.4}%
+\contentsline {subsection}{\numberline {A2}Networks}{35}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {A2.1}Network fundamentals}{35}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {A2.2}Network architecture}{35}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {A2.3}Data transmission}{35}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {A2.4}Network security}{35}{subsubsection.1.2.4}%
+\contentsline {subsection}{\numberline {A3}Databases}{35}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {A3.1}Database fundamentals}{35}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {A3.2}Database design}{35}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {A3.3}Database programming}{35}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {A3.4}Alternative databases and data warehouses}{35}{subsubsection.1.3.4}%
+\contentsline {subsection}{\numberline {A4}Machine learning}{35}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {A4.1}Machine learning fundamentals}{35}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {A4.2}Data preprocessing}{35}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {A4.3}Machine learning approaches}{35}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {A4.4}Ethical considerations}{35}{subsubsection.1.4.4}%
+\contentsline {section}{\numberline {B}Computational Thinking and Problem Solving}{36}{section.2}%
+\contentsline {subsection}{\numberline {B1}Computational thinking}{36}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {B1.1}Approaches to computational thinking}{36}{subsubsection.2.1.1}%
+\contentsline {paragraph}{\numberline {B1.1.1}Problem specification}{36}{paragraph.2.1.1.1}%
+\contentsline {paragraph}{\numberline {B1.1.2}Fundamental concepts of computational thinking}{36}{paragraph.2.1.1.2}%
+\contentsline {subsection}{\numberline {B2}Programming}{36}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {B2.1}Programming fundamentals}{36}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {B2.2}Programming constructs}{36}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {B2.3}Data structures}{36}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {B2.4}Programming algorithms}{36}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {B2.5}File processing}{36}{subsubsection.2.2.5}%
+\contentsline {subsection}{\numberline {B3}Object-oriented programming (OOP)}{36}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {B3.1}Fundamentals of OOP for a single class}{36}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {B3.2}Fundamentals of OOP for multiple classes}{36}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {B4}Abstract data types (ADTs)}{36}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {B4.1}Fundamentals of abstract data types}{36}{subsubsection.2.4.1}%
+\contentsline {section}{\numberline {C}Appendices}{37}{section.3}%
+\contentsline {subsubsection}{\numberline {C0.1}My favourite operating system: Arch Linux (+ Hyprland)}{37}{subsubsection.3.0.1}%
+\contentsline {paragraph}{\numberline {C0.1.1}What it is}{37}{paragraph.3.0.1.1}%
+\contentsline {paragraph}{\numberline {C0.1.2}Why it is my favourite}{37}{paragraph.3.0.1.2}%

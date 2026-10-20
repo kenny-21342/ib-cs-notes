@@ -1,0 +1,58 @@
+% !TEX program = lualatex
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[top=0.7in,bottom=0.6in,left=0.3in,right=0.3in,headheight=15pt]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+% \usepackage{appendix}
+\hypersetup{
+    hidelinks
+}
+\tracinglostchars=1
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{gensymb}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{textcomp}
+\usepackage{luatexja-fontspec}
+\usepackage{xcolor}
+\usepackage{bookmark}
+\usepackage{amsmath,amssymb,amsfonts, mathrsfs}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{babel}
+\usepackage{titlesec}
+\hbadness=10000
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\titleformat{\paragraph}[hang]{\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+\setmainjfont{FandolSong-Regular.otf}[
+    BoldFont = FandolHei-Regular.otf,
+    ItalicFont = FandolKai-Regular.otf,
+    BoldItalicFont = FandolHei-Regular.otf
+]
+\setsansjfont{FandolHei-Regular.otf}
+\pgfplotsset{width=10cm, compat=1.18}
+\usetikzlibrary{datavisualization,shapes.arrows}
+\usetikzlibrary{patterns,calc, positioning,arrows.meta, angles, quotes,math, 3d, shapes.misc}
+\usetikzlibrary{datavisualization.formats.functions,shadings}
+\usetikzlibrary{shapes.symbols,arrows.meta,decorations.pathmorphing,decorations.markings,babel,shapes.geometric,backgrounds,shadows}
+\singlespacing
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\leftmark}
+% \renewcommand{\arraystretch}{2}
+\renewcommand{\footrulewidth}{0.6pt}
+\rfoot{\thepage}
+\lfoot{\rightmark}
+\title{\textbf{IB Comp Sci Notes}}
+\author{Kenny Lin / BusyPizza}

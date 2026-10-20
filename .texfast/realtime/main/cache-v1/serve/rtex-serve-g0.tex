@@ -1,0 +1,8 @@
+\input{/Users/kenny_lhs/Desktop/包校/高中/IB/CS/IB_CS_Notes/.texfast/realtime/main/cache-v1/serve/rtex-preamble.tex}
+\newbox\rtexbox\newcount\rtexcontinue\rtexcontinue=1 \edef\rtexcountnum{\number\allocationnumber}\newcatcodetable\rtexcct{\makeatletter\savecatcodetable\rtexcct}
+\begin{document}
+\input{rtex-serve-patches}
+\directlua{rtex_serve = dofile(kpse.find_file("rtex-serve.lua", "lua") or "rtex-serve.lua") rtex_serve.init(\number\rtexbox, \rtexcountnum, \number\rtexcct)}
+\makeatletter\newbox\rtex@imgbox\IfPackageLoadedTF{graphicx}{\AddToHook{cmd/Gin@setfile/after}{\setbox\rtex@imgbox\hbox{\csname\Gin@base\Gin@ext\space image\ifdefined\Gin@attr@hash\Gin@attr@hash\fi\endcsname}\directlua{rtex_serve.image(\number\lastsavedimageresourceindex,"\luaescapestring{\Gin@base\Gin@ext}","\luaescapestring{\Gin@page}",\number\lastsavedimageresourcepages,"\luaescapestring{\Gin@base\Gin@ext\space image\ifdefined\Gin@attr@hash\Gin@attr@hash\fi}",\number\rtex@imgbox)}}}{}\makeatother
+\loop\rtexstep\ifnum\rtexcontinue>0 \repeat
+\end{document}
