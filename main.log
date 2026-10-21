@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.3.22)  20 OCT 2026 11:26
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.3.22)  21 OCT 2026 12:01
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -2185,13 +2185,13 @@ LaTeX Font Info:    Font shape `JT3/FandolSong-Regular.otf(0)/b/n' will be
 LaTeX Font Info:    Font shape `JY3/FandolSong-Regular.otf(0)/b/n' will be
 (Font)              scaled to size 13.85594pt on input line 77.
  [4] [5] [6] [7]
-<Picture1.png, id=197, 487.8225pt x 497.6775pt>
+<Picture1.png, id=203, 487.8225pt x 497.6775pt>
 File: Picture1.png Graphic file (type png)
 <use Picture1.png>
 Package luatex.def Info: Picture1.png  used on input line 202.
 (luatex.def)             Requested size: 498.72751pt x 508.80899pt.
  [8<./Picture1.png>] [9]
-<Screenshot 2026-09-17 at 23.00.02.png, id=208, 972.63374pt x 127.47626pt>
+<Screenshot 2026-09-17 at 23.00.02.png, id=214, 972.63374pt x 127.47626pt>
 File: Screenshot 2026-09-17 at 23.00.02.png Graphic file (type png)
 <use Screenshot 2026-09-17 at 23.00.02.png>
 Package luatex.def Info: Screenshot 2026-09-17 at 23.00.02.png  used on input l
@@ -2204,7 +2204,7 @@ LaTeX Font Info:    Font shape `JT3/FandolSong-Regular.otf(0)/m/n' will be
 LaTeX Font Info:    Font shape `JT3/FandolSong-Regular.otf(0)/m/n' will be
 (Font)              scaled to size 5.77332pt on input line 300.
 (load cache: extra_lmroman6-bold.luc)
-<Screenshot 2026-09-24 at 12.41.11.png, id=221, 951.555pt x 293.095pt>
+<Screenshot 2026-09-24 at 12.41.11.png, id=227, 951.555pt x 293.095pt>
 File: Screenshot 2026-09-24 at 12.41.11.png Graphic file (type png)
 <use Screenshot 2026-09-24 at 12.41.11.png>
 Package luatex.def Info: Screenshot 2026-09-24 at 12.41.11.png  used on input l
@@ -2212,25 +2212,25 @@ ine 327.
 (luatex.def)             Requested size: 498.72751pt x 153.61778pt.
  [11<./Screenshot 2026-09-24 at 12.41.11.png>] [12] [13] [14](load cache: extra_
 lmmono12-regular.luc)(load cache: extra_lmmono8-regular.luc) [15]
-<Screenshot 2026-10-05 at 12.33.38.png, id=263, 611.28375pt x 619.31375pt>
+<Screenshot 2026-10-05 at 12.33.38.png, id=269, 611.28375pt x 619.31375pt>
 File: Screenshot 2026-10-05 at 12.33.38.png Graphic file (type png)
 <use Screenshot 2026-10-05 at 12.33.38.png>
 Package luatex.def Info: Screenshot 2026-10-05 at 12.33.38.png  used on input l
 ine 529.
 (luatex.def)             Requested size: 121.91267pt x 123.5109pt.
-<Screenshot 2026-10-05 at 12.34.03.png, id=264, 602.25pt x 447.6725pt>
+<Screenshot 2026-10-05 at 12.34.03.png, id=270, 602.25pt x 447.6725pt>
 File: Screenshot 2026-10-05 at 12.34.03.png Graphic file (type png)
 <use Screenshot 2026-10-05 at 12.34.03.png>
 Package luatex.def Info: Screenshot 2026-10-05 at 12.34.03.png  used on input l
 ine 563.
 (luatex.def)             Requested size: 121.91267pt x 90.61902pt.
-<Screenshot 2026-10-05 at 12.37.18.png, id=265, 600.2425pt x 766.865pt>
+<Screenshot 2026-10-05 at 12.37.18.png, id=271, 600.2425pt x 766.865pt>
 File: Screenshot 2026-10-05 at 12.37.18.png Graphic file (type png)
 <use Screenshot 2026-10-05 at 12.37.18.png>
 Package luatex.def Info: Screenshot 2026-10-05 at 12.37.18.png  used on input l
 ine 594.
 (luatex.def)             Requested size: 121.91267pt x 155.74567pt.
-<Screenshot 2026-10-05 at 12.32.29.png, id=266, 1230.5975pt x 585.18625pt>
+<Screenshot 2026-10-05 at 12.32.29.png, id=272, 1230.5975pt x 585.18625pt>
 File: Screenshot 2026-10-05 at 12.32.29.png Graphic file (type png)
 <use Screenshot 2026-10-05 at 12.32.29.png>
 Package luatex.def Info: Screenshot 2026-10-05 at 12.32.29.png  used on input l
@@ -2239,109 +2239,135 @@ ine 625.
  [16<./Screenshot 2026-10-05 at 12.33.38.png><./Screenshot 2026-10-05 at 12.34.0
 3.png><./Screenshot 2026-10-05 at 12.37.18.png><./Screenshot 2026-10-05 at 12.32
 .29.png>] [17] [18]
-<kmap-torus.pdf, id=283, 823.878pt x 397.485pt>
+<kmap-torus.pdf, id=289, 823.878pt x 397.485pt>
 File: kmap-torus.pdf Graphic file (type pdf)
 <use kmap-torus.pdf>
 Package luatex.def Info: kmap-torus.pdf  used on input line 999.
 (luatex.def)             Requested size: 526.43648pt x 253.9771pt.
  [19<./kmap-torus.pdf>] [20]
-<textbook-task-manager.png, id=309, 783.92876pt x 589.20125pt>
-File: textbook-task-manager.png Graphic file (type png)
-<use textbook-task-manager.png>
-Package luatex.def Info: textbook-task-manager.png  used on input line 1046.
-(luatex.def)             Requested size: 408.8328pt x 307.28545pt.
-LaTeX Font Info:    Font shape `JT3/FandolSong-Regular.otf(0)/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 1047.
- [21<./textbook-task-manager.png>]
-Overfull \hbox (2.43153pt too wide) in paragraph at lines 1059--1061
+Overfull \hbox (2.43153pt too wide) in paragraph at lines 1054--1056
 \TU/lmr/m/n/12 display screens, keyboards and network interfaces through special
 ized software called device drivers.
  []
 
-<Screenshot 2026-10-19 at 18.51.25.png, id=318, 755.82375pt x 594.22pt>
+[21]
+<Screenshot 2026-10-19 at 18.51.25.png, id=329, 755.82375pt x 594.22pt>
 File: Screenshot 2026-10-19 at 18.51.25.png Graphic file (type png)
 <use Screenshot 2026-10-19 at 18.51.25.png>
 Package luatex.def Info: Screenshot 2026-10-19 at 18.51.25.png  used on input l
-ine 1070.
+ine 1065.
 (luatex.def)             Requested size: 314.49046pt x 247.24953pt.
-[22]
-Overfull \hbox (5.69751pt too wide) in paragraph at lines 1072--1073
+
+Overfull \hbox (5.69751pt too wide) in paragraph at lines 1067--1068
 []\TU/lmr/m/n/12 Scheduling: The OS schedules the process of managing the execut
 ion of multiple processes by determining
  []
 
 
-Overfull \hbox (2.65695pt too wide) in paragraph at lines 1072--1073
+Overfull \hbox (2.65695pt too wide) in paragraph at lines 1067--1068
 \TU/lmr/m/n/12 environments, where multiple applications and background processe
 s run concurrently. By implementing
  []
 
-<textbook-event-viewer.png, id=333, 784.9325pt x 491.8375pt>
+[22<./Screenshot 2026-10-19 at 18.51.25.png>]
+<textbook-event-viewer.png, id=339, 784.9325pt x 491.8375pt>
 File: textbook-event-viewer.png Graphic file (type png)
 <use textbook-event-viewer.png>
-Package luatex.def Info: textbook-event-viewer.png  used on input line 1092.
+Package luatex.def Info: textbook-event-viewer.png  used on input line 1087.
 (luatex.def)             Requested size: 358.37735pt x 224.5594pt.
-[23<./Screenshot 2026-10-19 at 18.51.25.png>]
+LaTeX Font Info:    Font shape `JT3/FandolSong-Regular.otf(0)/m/n' will be
+(Font)              scaled to size 9.6222pt on input line 1088.
 LaTeX Font Info:    Font shape `JT3/FandolHei-Regular.otf(0)/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 1098.
+(Font)              scaled to size 11.54663pt on input line 1093.
 LaTeX Font Info:    Font shape `JY3/FandolHei-Regular.otf(0)/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 1098.
+(Font)              scaled to size 11.54663pt on input line 1093.
 (load cache: extra_lmroman12-italic.luc)
 LaTeX Font Info:    Kanji font shape `JY3/FandolHei-Regular.otf(0)/m/it' undefi
 ned
-(Font)              No change on input line 1098.
+(Font)              No change on input line 1093.
 LaTeX Font Info:    Kanji font shape `JY3/FandolHei-Regular.otf(0)/m/it' undefi
 ned
-(Font)              No change on input line 1098.
+(Font)              No change on input line 1093.
 LaTeX Font Info:    Kanji font shape `JY3/FandolHei-Regular.otf(0)/m/it' undefi
 ned
-(Font)              No change on input line 1098.
- [24<./textbook-event-viewer.png>] [25]
-<textbook-ubuntu-gui.png, id=348, 792.9625pt x 451.6875pt>
-File: textbook-ubuntu-gui.png Graphic file (type png)
-<use textbook-ubuntu-gui.png>
-Package luatex.def Info: textbook-ubuntu-gui.png  used on input line 1135.
-(luatex.def)             Requested size: 366.9002pt x 208.99867pt.
-
-Overfull \hbox (5.5324pt too wide) in paragraph at lines 1141--1142
+(Font)              No change on input line 1093.
+ [23<./textbook-event-viewer.png>] [24]
+Overfull \hbox (5.5324pt too wide) in paragraph at lines 1132--1133
 \TU/lmr/m/n/12 (Transmission Control Protocol/Internet Protocol), which govern 
 how data is packetized, addressed,
  []
 
 
-Overfull \hbox (2.95964pt too wide) in paragraph at lines 1141--1142
+Overfull \hbox (2.95964pt too wide) in paragraph at lines 1132--1133
 \TU/lmr/m/n/12 services such as HTTP for web browsing, FTP for file transfers an
 d SMTP for email communication. 
  []
 
-[26<./textbook-ubuntu-gui.png>]
+[25]
+<os-functions.png, id=353, 963.6pt x 542.025pt>
+File: os-functions.png Graphic file (type png)
+<use os-functions.png>
+Package luatex.def Info: os-functions.png  used on input line 1138.
+(luatex.def)             Requested size: 387.90012pt x 218.18735pt.
+<Pasted 2026-10-20 at 14.06.09.png, id=354, 530.98375pt x 40.15pt>
+File: Pasted 2026-10-20 at 14.06.09.png Graphic file (type png)
+<use Pasted 2026-10-20 at 14.06.09.png>
+Package luatex.def Info: Pasted 2026-10-20 at 14.06.09.png  used on input line 
+1139.
+(luatex.def)             Requested size: 443.31804pt x 33.52174pt.
 LaTeX Font Info:    Font shape `JT3/FandolSong-Regular.otf(0)/m/it' will be
-(Font)              scaled to size 11.54663pt on input line 1151.
+(Font)              scaled to size 11.54663pt on input line 1147.
 LaTeX Font Info:    Font shape `JY3/FandolSong-Regular.otf(0)/m/it' will be
-(Font)              scaled to size 11.54663pt on input line 1151.
-
-Overfull \hbox (6.29964pt too wide) in paragraph at lines 1160--1161
+(Font)              scaled to size 11.54663pt on input line 1147.
+(load cache: extra_lmroman5-regular.luc)
+LaTeX Font Info:    Font shape `JY3/FandolSong-Regular.otf(0)/m/n' will be
+(Font)              scaled to size 4.8111pt on input line 1175.
+ [26<./os-functions.png><./Pasted 2026-10-20 at 14.06.09.png>]
+Overfull \hbox (6.29964pt too wide) in paragraph at lines 1181--1182
 []\TU/lmr/m/n/12 Advantages: important and critical tasks are executed as soon 
 as possible, improving responsiveness;
  []
 
-[27](load cache: extra_lmroman5-regular.luc)
-LaTeX Font Info:    Font shape `JY3/FandolSong-Regular.otf(0)/m/n' will be
-(Font)              scaled to size 4.8111pt on input line 1192.
-
-Overfull \hbox (0.42947pt too wide) in paragraph at lines 1205--1206
+[27]
+Overfull \hbox (0.42947pt too wide) in paragraph at lines 1213--1214
 []\TU/lmr/m/n/12 Advantages: straightforward and simple to implement; provides 
 controlled latency with predictable
  []
 
-[28] [29] [30] [31] [32]
-Overfull \hbox (1.79883pt too wide) in paragraph at lines 1353--1354
+<polling_v_interrupt.png, id=364, 2569.6pt x 1655.18375pt>
+File: polling_v_interrupt.png Graphic file (type png)
+<use polling_v_interrupt.png>
+Package luatex.def Info: polling_v_interrupt.png  used on input line 1241.
+(luatex.def)             Requested size: 387.90012pt x 249.85797pt.
+[28] [29<./polling_v_interrupt.png>] [30] [31]
+Overfull \hbox (1.79883pt too wide) in paragraph at lines 1342--1343
 []\TU/lmr/bx/n/12 Actuators\TU/lmr/m/n/12 : the components that carry out the ph
 ysical actions or adjustments in response to commands
  []
 
-[33]
-ignored: Infinite glue shrinkage found in box being split [34] [35] [36] [37] (./main.aux)
+[32]
+ignored: Infinite glue shrinkage found in box being split [33]
+LaTeX Font Info:    Kanji font shape `JY3/FandolHei-Regular.otf(0)/m/it' undefi
+ned
+(Font)              No change on input line 1407.
+LaTeX Font Info:    Kanji font shape `JY3/FandolHei-Regular.otf(0)/m/it' undefi
+ned
+(Font)              No change on input line 1412.
+LaTeX Font Info:    Kanji font shape `JY3/FandolHei-Regular.otf(0)/m/it' undefi
+ned
+(Font)              No change on input line 1412.
+ [34] [35](load cache: extra_lmroman10-bolditalic.luc)
+LaTeX Font Info:    Font shape `JT3/FandolSong-Regular.otf(0)/b/it' will be
+(Font)              scaled to size 11.54663pt on input line 1490.
+LaTeX Font Info:    Font shape `JY3/FandolSong-Regular.otf(0)/b/it' will be
+(Font)              scaled to size 11.54663pt on input line 1490.
+ [36]
+Overfull \hbox (1.9858pt too wide) in paragraph at lines 1496--1497
+\TU/lmr/m/n/12 platforms without modification. Compilers, however, produce machi
+ne code tailored to specific hardware
+ []
+
+[37] [38] [39] [40] [41] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -2349,37 +2375,39 @@ L3 programming layer <2026-01-19>
 )
 
 Here is how much of LuaTeX's memory you used:
- 60983 strings out of 476076
- 244625,2848258 words of node,token memory allocated
- 3563 words of node memory still in use:
-   26 hlist, 2 vlist, 13 rule, 2 glue, 4 kern, 1 glyph, 1148 attribute, 63 glue_
-spec, 120 attribute_list, 2 write, 28 user_defined, 16 pdf_literal, 1 pdf_action
+ 61127 strings out of 476076
+ 244632,2848258 words of node,token memory allocated
+ 3589 words of node memory still in use:
+   26 hlist, 2 vlist, 13 rule, 2 glue, 4 kern, 1 glyph, 1160 attribute, 63 glue_
+spec, 121 attribute_list, 2 write, 28 user_defined, 16 pdf_literal, 1 pdf_action
 , 16 pdf_colorstack nodes
-   avail lists: 1:21,2:70550,3:1288,4:1220,5:643,6:159,7:9412,8:47,9:1779,10:27,
-11:27
- 81973 multiletter control sequences out of 65536+600000
- 122 fonts using 64568271 bytes
+   avail lists: 1:20,2:70537,3:1788,4:1223,5:646,6:156,7:9780,8:47,9:1779,10:27,
+11:28
+ 82108 multiletter control sequences out of 65536+600000
+ 123 fonts using 64700279 bytes
  106i,14n,113p,2040b,1050s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.ot
-f></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.
-otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmroman8-regula
-r.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/fandol/FandolSon
-g-Regular.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmrom
-an10-regular.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lm
-roman10-bold.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lm
-roman12-regular.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm
-/lmroman12-bold.otf></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
->
-Output written on main.pdf (37 pages, 4173075 bytes).
+</usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditali
+c.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmmono8-regul
+ar.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmroman12-it
+alic.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmmono12-r
+egular.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmroman8
+-regular.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/fandol/Fa
+ndolSong-Regular.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/public/l
+m/lmroman10-regular.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/publi
+c/lm/lmroman10-bold.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/publi
+c/lm/lmroman12-regular.otf></usr/local/texlive/2026/texmf-dist/fonts/opentype/pu
+blic/lm/lmroman12-bold.otf></usr/local/texlive/2026/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb>
+Output written on main.pdf (41 pages, 7025320 bytes).
 
-PDF statistics: 669 PDF objects out of 1000 (max. 8388607)
- 553 compressed objects within 6 object streams
- 140 named destinations out of 1000 (max. 1048576)
- 672 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 718 PDF objects out of 1000 (max. 8388607)
+ 589 compressed objects within 6 object streams
+ 147 named destinations out of 1000 (max. 1048576)
+ 696 words of extra memory for PDF output out of 10000 (max. 100000000)
 

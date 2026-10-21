@@ -1401,6 +1401,134 @@ Automatic doors & Infrared motion detectors or pressure mats detecting people or
     \item Autonomous vehicles and elevators are the best examples to use when explaining why \textit{transducers} matter: sensors such as LiDAR and radar produce signals that the controller cannot use directly, and actuators such as steering and braking need precisely shaped electrical signals, so transducers convert between the physical world and the electronic signals.
 \end{itemize}
 \subsubsection{Translation}
+\paragraph{Translation processes of interpreters and compilers}
+Interpreters and compilers both transform high-level code into machine-readable instructions, yet they do so through different methods, each with unique implications for performance, error handling and development efficiency.
+\begin{itemize}
+    \item \textbf{Interpreters}: translate high-level programming code into machine code \emph{line-by-line or statement-by-statement}, executing each line as it is translated. Unlike compilers, they do not generate an intermediate machine-code file; instead they directly execute the source code on the fly, reading the code, translating it and running it immediately, and repeating this for each line or block until the whole program has been executed.
+    \begin{itemize}
+        \item \textit{Mechanics}: an interpreter can start executing a program without processing the entire codebase upfront, which allows for immediate feedback --- particularly useful during development and debugging. The cost is slower overall performance, since the code must be repeatedly translated and executed on every run.
+        \item \textit{Use cases}: quick testing and debugging are essential; languages such as Python, JavaScript and Ruby are often interpreted, making them popular for web development, scripting and rapid application development. Interpreters are also ideal for educational purposes, enabling beginners to see results in real time, and are favoured where portability matters, since the same source code runs on any platform that has the appropriate interpreter.
+    \end{itemize}
+    \item \textbf{Compilers}: translate the \emph{entire} high-level source code into machine code in a single, comprehensive process \emph{before} the program is executed. This involves several stages: \textbf{lexical analysis} (breaking the source into tokens), \textbf{syntax analysis} (checking the tokens form valid code), \textbf{semantic analysis} (checking the code actually makes sense), \textbf{optimization} and \textbf{code generation}. The final output is a standalone executable file, typically in machine code or an intermediate form such as bytecode, which can be run directly on the target machine.
+    \begin{itemize}
+        \item \textit{Mechanics}: once compiled, the machine code needs no further translation, so the program executes much faster than interpreted code. However the initial compilation can be time-consuming, especially for large and complex programs, and because the whole code must be compiled before execution, any source errors have to be addressed first, which slows the development cycle.
+        \item \textit{Use cases}: performance-critical software, where languages including C, C++ and Java (which compiles to bytecode for the JVM) are suited to system software, high-performance computing and real-time systems such as video games. Compiled code is also advantageous where security and resource control matter, since pre-generated, optimized machine code is harder to reverse-engineer and is less dependent on external environments. Finally, compilers are often chosen when software must be deployed across different hardware specifications, since compilation can be tailored to optimize the executable for specific architectures.
+    \end{itemize}
+    \item \textbf{Bytecode interpreters}: first translate the high-level source code into an intermediate form known as \textbf{bytecode}. This bytecode is not executed by the machine's hardware directly, but by a \textbf{virtual machine (VM)} or an interpreter that understands the bytecode's instructions. Bytecode is a compact, platform-independent representation of the program, so it can run on any system with the appropriate VM.
+    \begin{itemize}
+        \item \textit{Use cases}: Java is the prime example --- code is compiled into bytecode that runs on the Java Virtual Machine (JVM), so the same application runs on any platform with a JVM, making it ideal for enterprise applications, web services and mobile apps. Python uses a similar approach, compiling source to bytecode (the \texttt{.pyc} file) which is then executed by the Python interpreter, so bytecode interpreters are also valuable in educational settings, web development and scripting, where flexibility and ease of deployment matter more than raw performance.
+    \end{itemize}
+    \item \textbf{Just-in-time (JIT) compilation}: a dynamic approach that combines elements of both interpretation and compilation. Initially the source code is compiled into bytecode, which is then interpreted by a virtual machine. As the program runs, the JIT compiler identifies frequently executed sections of the bytecode --- the \textit{hot spots} --- and compiles them into machine code on the fly. This machine code is then cached, so the next time the same code is executed the system uses the compiled version instead of interpreting it again.
+    \begin{itemize}
+        \item \textit{Use cases}: beneficial where performance is critical but the application must also stay portable and dynamically optimized. Both the JVM and the .NET runtime use JIT compilation, and it is especially valuable in long-running applications such as servers, where the overhead of JIT compilation is outweighed by the gains on subsequent runs of the same code paths. Web browsers also use it to optimize frequently executed JavaScript and improve page load times.
+    \end{itemize}
+\end{itemize}
+\begin{center}
+\begin{tikzpicture}[font=\scriptsize,>=Stealth]
+% ---------- Interpreter ----------
+\node[draw,rounded corners,fill=blue!12,align=center,minimum width=2.4cm,minimum height=0.9cm] (src1) at (0,0) {Source code\\(high-level language)};
+\node[draw,rounded corners,fill=green!16,align=center,minimum width=2.2cm,minimum height=0.9cm] (int1) at (3.8,0) {Interpreter};
+\node[draw,rounded corners,fill=orange!18,align=center,minimum width=2.6cm,minimum height=0.9cm] (out1) at (7.8,0) {Executable code\\(machine language) / output};
+\draw[->,thick] (src1) -- (int1);
+\draw[->,thick] (int1) -- (out1);
+\draw[->,thick,red!70!black] (int1.south west) -- ++(-0.45,0) -- ++(0,-0.75) -- ++(2.65,0) -- (int1.south east);
+\node[font=\scriptsize,red!70!black] at (3.575,-1.38) {get next instruction};
+\node[font=\small\bfseries] at (3.9,1.5) {Interpreter};
+\node[font=\scriptsize,align=center,text width=13.5cm] at (3.9,-2.05) {The interpreter reads one statement, translates it, runs it and asks for the next --- so the program starts running immediately, without waiting for the whole codebase to be translated.};
+% ---------- Compiler ----------
+\begin{scope}[yshift=-4.8cm]
+\node[draw,rounded corners,fill=blue!12,align=center,minimum width=2.4cm,minimum height=0.9cm] (src2) at (0,0) {Source code\\(high-level language)};
+\node[draw,rounded corners,fill=green!16,align=center,minimum width=2.2cm,minimum height=0.9cm] (cmp2) at (3.8,0) {Compiler};
+\node[draw,rounded corners,fill=orange!18,align=center,minimum width=2.6cm,minimum height=0.9cm] (obj2) at (7.8,0) {Object code\\(machine language)};
+\draw[->,thick] (src2) -- (cmp2);
+\draw[->,thick] (cmp2) -- (obj2);
+\node[font=\small\bfseries] at (3.9,1.5) {Compiler};
+\node[font=\scriptsize,align=center,text width=13.5cm] at (3.9,-1.6) {The whole program is translated in one go before anything runs: lexical analysis, syntax analysis, semantic analysis, optimization and code generation produce a standalone executable.};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[font=\scriptsize,>=Stealth]
+\node[draw,rounded corners,fill=blue!12,align=center,minimum width=2.6cm,minimum height=0.9cm] (jf) at (0,0) {Java file (program)};
+\node[draw,rounded corners,fill=green!16,minimum width=2.2cm,minimum height=0.9cm] (jc) at (3.9,0) {Compiler};
+\node[draw,rounded corners,fill=cyan!14,align=center,minimum width=2.6cm,minimum height=0.9cm] (bc) at (7.8,0) {Bytecode\\\texttt{.class} file};
+\draw[->,thick] (jf) -- node[above,font=\scriptsize]{compiles to} (jc);
+\draw[->,thick] (jc) -- node[above,font=\scriptsize]{produces} (bc);
+\node[draw,rounded corners,fill=orange!18,align=center,minimum width=2.4cm,minimum height=0.8cm] (jvmw) at (11.9,1.3) {JVM (Windows)};
+\node[draw,rounded corners,fill=orange!18,align=center,minimum width=2.4cm,minimum height=0.8cm] (jvml) at (11.9,0) {JVM (Linux)};
+\node[draw,rounded corners,fill=orange!18,align=center,minimum width=2.4cm,minimum height=0.8cm] (jvmm) at (11.9,-1.3) {VM (Mac)};
+\node[draw,rounded corners,fill=red!15,align=center,minimum width=2.2cm,minimum height=0.8cm] (mc1) at (15.2,1.3) {Machine code};
+\node[draw,rounded corners,fill=red!15,align=center,minimum width=2.2cm,minimum height=0.8cm] (mc2) at (15.2,0) {Machine code};
+\node[draw,rounded corners,fill=red!15,align=center,minimum width=2.2cm,minimum height=0.8cm] (mc3) at (15.2,-1.3) {Machine code};
+\draw[->,thick] (bc) -- (jvmw);
+\draw[->,thick] (bc) -- (jvml);
+\draw[->,thick] (bc) -- (jvmm);
+\draw[->,thick] (jvmw) -- (mc1);
+\draw[->,thick] (jvml) -- (mc2);
+\draw[->,thick] (jvmm) -- (mc3);
+\node[font=\small\bfseries] at (7.4,2.5) {Bytecode interpretation};
+\node[font=\scriptsize,align=center,text width=14cm] at (7.4,-2.7) {The bytecode is platform-independent, so the same \texttt{.class} file runs on any system with a suitable virtual machine --- this is what makes Java applications portable.};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[font=\scriptsize,>=Stealth]
+\node[draw,rounded corners,fill=blue!12,minimum width=4.2cm,minimum height=0.85cm] (jsrc) at (0,0) {Source code};
+\node[draw,rounded corners,fill=cyan!14,minimum width=4.2cm,minimum height=0.85cm] (jbc) at (0,-1.5) {Bytecode (platform-independent)};
+\node[draw,rounded corners,fill=green!16,align=center,minimum width=4.6cm,minimum height=0.95cm] (jvm) at (0,-3.0) {Virtual machine\\interprets the bytecode};
+\node[draw,rounded corners,fill=orange!18,align=center,minimum width=4.6cm,minimum height=0.95cm] (jjit) at (0,-4.6) {JIT compiler\\compiles the hot spots};
+\node[draw,rounded corners,fill=red!15,minimum width=4.2cm,minimum height=0.85cm] (jmc) at (0,-6.1) {Machine code (cached)};
+\draw[->,thick] (jsrc) -- node[right,font=\scriptsize]{compiled to} (jbc);
+\draw[->,thick] (jbc) -- node[right,font=\scriptsize]{interpreted by} (jvm);
+\draw[->,thick] (jvm) -- node[right,font=\scriptsize]{hot spots} (jjit);
+\draw[->,thick] (jjit) -- node[right,font=\scriptsize]{produces} (jmc);
+\draw[->,thick,dashed,red!70!black] (jmc.east) -- ++(1.6,0) -- ++(0,3.1) -- (jvm.east);
+\node[font=\scriptsize,red!70!black,align=center,text width=4.6cm] at (4.9,-4.6) {the cached code is reused instead of interpreting again on later runs};
+\node[font=\small\bfseries] at (0,1.0) {Just-in-time (JIT) compilation};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\textbf{\textit{Top tip:}}\quad An interpreter is like someone who translates each sentence of a book for you as you read, giving you immediate understanding, but requiring them to translate each line again every time you revisit it. A compiler is like a translator who first converts the entire book into your native language, letting you read it smoothly without any further translation --- but you have to wait until the whole book is translated before you can start reading.
+\end{center}
+\paragraph{Evaluating the translation processes}
+\begin{itemize}
+    \item \textbf{Error detection}: compilers offer the most robust detection, because they analyse the entire source code before producing an executable, so all syntax and some semantic errors are caught and must be resolved before the program can run --- giving fewer runtime errors and a more stable final product. Interpreters detect errors at run time, as they execute code line by line, which lets developers quickly identify and correct errors during development; the downside is that errors are only discovered when the offending code actually executes, so a runtime error can disrupt execution unexpectedly. Bytecode interpreters provide a middle ground: some errors are caught before execution, but others still appear at run time, reducing the frequency of runtime errors without offering the exhaustive checking of full compilation. JIT combines runtime error detection with dynamic optimization.
+    \item \textbf{Translation time}: compilers require a considerable amount of time initially to convert the entire source code, but the payoff is that the compiled program runs significantly faster once translation is complete. Interpreters execute code directly by translating it line by line, so the program runs almost immediately, which is advantageous for quick testing and iterating; however, larger codebases experience slower overall performance. Bytecode interpreters balance the two --- compiling to bytecode is quicker than compiling to machine code, and bytecode then executes more efficiently than direct interpretation of source. JIT goes a step further by converting bytecode into machine code dynamically as the program runs: some runtime overhead, but it reduces initial translation time while improving execution speed as the program continues, especially for frequently executed code paths.
+    \item \textbf{Portability}: a significant advantage of interpreters and bytecode interpreters. Since interpreters execute source code directly, the same code runs on any platform with the appropriate interpreter, making them ideal for cross-platform applications. Bytecode interpreters extend this by compiling source into platform-independent bytecode that runs on any system with the appropriate VM (for example Java's JVM), which is particularly valuable where applications must operate across diverse platforms without modification. Compilers, however, produce machine code tailored to specific hardware architectures, resulting in highly efficient but far less portable executables --- each target platform may require separate compilation. JIT preserves the portability of bytecode while enhancing performance, optimizing for the specific hardware at runtime.
+    \item \textbf{Applicability}: compilers are best suited to applications where performance is critical, such as system software, high-performance computing and real-time systems, since the upfront compilation time is justified by the high execution speed of the resulting code. Interpreters are ideal for scenarios where rapid development, testing and iteration are essential --- scripting, web development and educational environments --- where flexibility and quick feedback matter more than raw performance. Bytecode interpreters are commonly used in enterprise applications, web services and mobile apps where cross-platform compatibility is crucial, offering a flexible balance of portability and efficient execution. JIT compilation is particularly valuable in long-running applications and complex systems where performance needs to improve over time --- server environments, dynamic web applications, and platforms such as Java and .NET.
+\end{itemize}
+\textbf{Comparison Chart}
+\begin{center}
+% \renewcommand{\arraystretch}{1.5} % Adds vertical padding to rows
+\begin{tabular}{| p{2.8cm} | p{3.5cm} | p{3.5cm} | p{3.5cm} | p{3.5cm} |}
+\hline
+\bfseries  & \bfseries Interpreter & \bfseries Compiler & \bfseries JIT compiler & \bfseries Bytecode interpreter \\
+\hline
+\bfseries Error detection & At run time, as each statement is reached & At compile time, before execution & At run time; verification can catch some errors first & At run time; bytecode verification catches some errors first \\
+\hline
+\bfseries Translation time & Negligible; starts at once & Slow; whole program translated upfront & Fast start, then compiles hot code during the run & Faster than full compilation; bytecode is an intermediate step \\
+\hline
+\bfseries Execution speed & Slower; translation continues throughout & Fast; optimised native code & Near-compiled on hot paths & Faster than direct interpretation, below native \\
+\hline
+\bfseries Portability & High; runs anywhere the interpreter exists & Low; native code is platform-specific & Moderate; tuned to the host at run time & High; same bytecode runs on any compatible VM \\
+\hline
+\bfseries Applicability & Scripting, prototyping, dynamic languages & Performance-critical and systems software & Balance of portability and speed & Portable apps with moderate performance needs \\
+\hline
+\end{tabular}
+\end{center}
+\paragraph{Example scenarios}
+\begin{center}
+\begin{tabular}{| p{3.4cm} | p{3.6cm} | p{9.4cm} |}
+\hline
+\bfseries Scenario & \bfseries Best translation method & \bfseries Explanation \\
+\hline
+Rapid development and testing & Interpreters & Immediate execution allows quick iterations, debugging and real-time feedback; ideal for scripting languages such as Python or JavaScript \\
+\hline
+Performance-critical applications & Compilers & The whole codebase is optimized into machine code before execution, giving highly efficient, fast-running applications; suitable for system software, gaming and real-time systems in C or C++ \\
+\hline
+Cross-platform development & Bytecode interpreters and JIT compilation & Bytecode gives platform independence (the same code runs on any platform with the right VM), while JIT enhances performance by optimizing frequently executed code at runtime; ideal for enterprise software, mobile apps and web services \\
+\hline
+\end{tabular}
+\end{center}
 \subsection{Networks}
 \subsubsection{Network fundamentals}
 \subsubsection{Network architecture}
