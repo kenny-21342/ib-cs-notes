@@ -1549,17 +1549,226 @@ Cross-platform development & Bytecode interpreters and JIT compilation & Bytecod
 \section{Computational Thinking and Problem Solving}
 \subsection{Computational thinking}
 \subsubsection{Approaches to computational thinking}
+\begingroup
+\setlength{\emergencystretch}{3em}
+\noindent\textit{Scope and reference: Oxford, MacKenty and Stephenson (2025), pp.~317--334; IB Computer Science guide (first assessment 2027), B1.1.1--B1.1.4. These four numbered paragraphs cover B1. Computational thinking is a toolkit for formulating and solving problems; it can be used without writing a program. Application examples below also draw on the classroom material supplied by the student and are expressed as condensed study notes.}
+
 \paragraph{Problem specification}
+\textbf{A problem specification} defines what needs solving, who needs the solution, the restrictions, and how success will be judged. Agree it with the intended users before designing the solution: otherwise a technically correct program may solve the wrong problem.
+\begin{enumerate}
+    \item \textbf{Problem statement}: identify the affected users, the current difficulty and its consequences. State what and why, using precise evidence where available. ``Improve school administration'' is too vague; ``staff must compare room-booking records manually, so clashes can be missed'' identifies a specific problem.
+    \item \textbf{Constraints and limitations}: state boundaries such as budget, deadline, available hardware, supported software, connectivity and privacy requirements. Distinguish a restriction on development from a limitation of the solution: an offline prototype cannot synchronize bookings across multiple computers.
+    \item \textbf{Objectives and goals}: an objective describes the desired broad outcome; specific goals make it measurable and, where appropriate, time-bound. For example, improve booking reliability; during a two-week pilot, detect every clash in an agreed test set.
+    \item \textbf{Input specifications}: define data items, types, formats, valid ranges, sources and validation rules. For example, a room ID must reference an existing room; a start time uses a 24-hour time format.
+    \item \textbf{Output specifications}: define the result's content, format, presentation and recipient. For example, show a confirmation containing the room, date and time, or an error explaining the clash.
+    \item \textbf{Evaluation criteria (success criteria)}: define testable benchmarks, linked to the original problem and goals, and state how evidence will be collected. Consider effectiveness (solves the problem), accuracy (correct results), efficiency (time/resources), usability (users can complete tasks) and maintainability (changes can be made safely). ``Easy to use'' is vague; ``four of five staff can create a booking unaided within two minutes'' is testable.
+\end{enumerate}
+\textbf{Goals versus criteria:} a goal is a desired result; a criterion supplies the pass/fail measure used to evaluate it. An input or output specification describes required data or behaviour; testing against it provides evidence of success.
+
+\textbf{Worked real-world problem: avoiding school room-booking clashes}
+
+\textit{Illustrative specification: the quantities below are proposed requirements, not measurements of an actual school.}
+\begin{itemize}
+    \item \textbf{Problem statement}: teachers book shared rooms through separate messages. Staff cannot reliably see existing reservations, creating the risk of two activities being assigned the same room at the same time. A central booking tool should detect conflicts before accepting a reservation.
+    \item \textbf{Constraints and limitations}: build a prototype in four weeks using existing school computers and no paid services. Pilot it on one staff-operated computer with local storage; a shared version would require centralized storage and concurrency control. Store only staff identifiers needed for booking, and restrict access to authorized staff. Assume bookings begin and end on the same date and use one school time zone.
+    \item \textbf{Objective and goal}: improve room allocation; by the end of a two-week pilot, prevent all overlapping bookings in an agreed test set and let staff view a room's daily bookings.
+    \item \textbf{Inputs}: room ID (string from a maintained list), staff ID (non-empty authorized identifier), booking date (valid date in \texttt{YYYY-MM-DD}), start and end times (\texttt{HH:MM}, 24-hour format). Require $start < end$. Existing bookings supply room, date, start and end values for comparison.
+    \item \textbf{Outputs}: a saved booking with a unique reference and a confirmation showing room/date/times; or a validation/conflict message. A daily schedule lists accepted bookings in start-time order. Rejected requests must not alter stored bookings.
+\end{itemize}
+\textbf{Measurable evaluation criteria and evidence}
+\begin{enumerate}
+    \item Reject every overlap in tests covering identical times, partial overlaps and one interval containing another; accept adjacent intervals, different rooms and different dates. Compare actual results with predetermined expected results.
+    \item Reject an unknown room, missing staff ID, impossible date, malformed time and $end \leq start$; display a useful error for each test.
+    \item After saving and restarting, retrieve every accepted test booking exactly once, with unchanged details; verify rejected requests were not saved.
+    \item On the pilot computer with 1,000 stored bookings, each of 20 test requests returns a result within one second. Record timings and the test environment.
+    \item At least four of five staff testers create a valid booking and locate it in the daily schedule unaided within two minutes; observe and record task completion.
+    \item Change the room list in its configuration without changing the overlap-checking algorithm; rerun the relevant acceptance tests to check maintainability.
+\end{enumerate}
+\textbf{How a computer program solves it:}
+\begin{enumerate}
+    \item Read and validate the requested room, date and times.
+    \item Retrieve existing bookings for the same room and date.
+    \item For each booking, test $(newStart < existingEnd)$ AND $(newEnd > existingStart)$. If true, report a clash and reject the request. Treat intervals as $[start,end)$, so a booking ending at 10:00 does not clash with one starting at 10:00.
+    \item If no overlap exists, save the booking, assign its reference and output confirmation. Sort the daily schedule by start time when requested.
+\end{enumerate}
+\textbf{Why use a program?} The input is structured, the conflict rule is precise, and the same comparisons are repeated for every request. A program applies the rule consistently, searches many records quickly, preserves bookings and makes the schedule easy to retrieve. Accurate input and a shared source of truth are still necessary. For simultaneous online requests, checking and saving must be protected as one atomic operation, so two users cannot both reserve the same free slot. Staff still decide priorities and resolve exceptional requests.
+
 \paragraph{Fundamental concepts of computational thinking}
 \begin{itemize}
-    \item Abstraction
-    \begin{itemize}
-        \item Definition: the process of extracting essential information, while disregarding irrelevant data, to propose or outline a feasible solution to a given problem.
-        \item Why it is important: Hide complexity from the user by abstracting data entities and hiding underlying implementation of a process.
-        \item By using abstraction: the time required to create a piece of software is reduced; the program becomes smaller in size, so it requires less space in memory and the download times are reduced; customer satisfaction increases, as their requirements are met without extra features. 
-    \end{itemize}
+    \item \textbf{Decomposition}: break a complex problem into smaller, manageable subproblems with clear responsibilities and interfaces. Parts can be developed, tested and debugged separately; independent tasks can be assigned to different people. In the room-booking example, separate input validation, conflict checking, storage and schedule display. Dependencies still determine which tasks must happen first.
+    \item \textbf{Pattern recognition}: identify similarities, recurring structures or trends in problems, data or solutions, then reuse or adapt a suitable solution. Every booking uses the same interval-overlap test, so one function can handle every room. Repeated demand for a room at lunchtime may also reveal a usage pattern. A pattern suggests a useful generalization; it does not by itself prove a cause.
+    \item \textbf{Abstraction}: retain details relevant to a purpose and hide or omit others, producing a simpler representation or interface. Conflict checking needs room ID, date and times, but not wall colour or furniture brand. A \texttt{saveBooking} interface hides file-handling details from the conflict checker. Which details matter depends on the task: room capacity matters if capacity checking is added. Abstraction manages complexity; it does not automatically make programs smaller or faster.
+    \item \textbf{Algorithmic design}: create a precise, ordered and unambiguous set of steps to solve a problem, with defined inputs, outputs and termination conditions. Use sequence, selection and iteration as required. For booking: validate input, loop through relevant reservations, reject if an overlap is found, otherwise save and confirm. The design can be expressed in plain language, pseudocode or a flowchart before implementation in a programming language.
+\end{itemize}
+The concepts work together and may be revisited in any order. Decomposition asks ``what smaller tasks?'', pattern recognition asks ``what is similar?'', abstraction asks ``what details matter?'', and algorithmic design asks ``what exact steps?'' A person could use the same ideas to organize a paper booking register without programming.
+
+\paragraph{Applying computational thinking to solve problems}
+\noindent\textit{Related reading: \href{https://thinkib.net/computerscience/page/58832/b-113-applying-computational-thinking}{InThinking B 1.1.3: Applying computational thinking}. The examples below explain both how each concept is applied and why it helps.}
+
+\textbf{Software development --- an online shop checkout}
+\begin{itemize}
+    \item \textbf{Decomposition}: separate basket calculation, address validation, stock reservation, payment and order confirmation. Clear interfaces allow a payment provider to be changed without rewriting basket calculations.
+    \item \textbf{Pattern recognition}: basket items, saved addresses and order history all require authorized retrieval of a user's records; shared data-access and validation routines reduce duplicated logic.
+    \item \textbf{Abstraction}: a payment API accepts an amount and a payment token and returns a result, hiding the provider's internal bank communication and processing.
+    \item \textbf{Algorithmic design}: validate basket and address, reserve stock, request payment, record the result, then confirm the order. Handle failure explicitly: release reservations and, if a charge has already succeeded, arrange a refund or other compensating action. An external payment cannot simply be undone by rolling back a local database transaction. This ordering and failure handling reduce inconsistent orders and duplicate charges.
 \end{itemize}
 
+\textbf{Data analysis --- school attendance reporting}
+\begin{itemize}
+    \item \textbf{Decomposition}: import records, validate and clean them, group by student, calculate attendance, identify students requiring review, and generate the report.
+    \item \textbf{Pattern recognition}: repeated absences on particular weekdays or in one tutor group suggest questions for staff to investigate. Correlation alone does not establish the reason for absence.
+    \item \textbf{Abstraction}: replace thousands of individual marks with each student's ID, expected sessions, present sessions and attendance percentage. Keep the raw records available for checking.
+    \item \textbf{Algorithmic design}: standardize IDs/dates/status codes, resolve duplicates and missing or invalid records under an agreed policy, then calculate $100 \times present/expected$ for each student with $expected>0$. Flag values below an illustrative 85\% threshold and display one decimal place. Compare the unrounded value with the threshold; handle zero expected sessions as ``not applicable''. Standardization should precede duplicate detection when inconsistent formats can hide duplicates. Automated summaries save repetitive work; staff review the context before acting.
+\end{itemize}
+
+\textbf{Network security --- detecting repeated failed logins}
+\begin{itemize}
+    \item \textbf{Decomposition}: separate event collection, parsing, counting, rule matching, alerting and logging. Detection rules can change without replacing the collection system.
+    \item \textbf{Pattern recognition}: many failed SSH logins from one source in a short period suggest a brute-force attempt. Signature or anomaly detection can flag suspicious activity, but legitimate failures may produce false positives and unfamiliar attacks may be missed.
+    \item \textbf{Abstraction}: show an alert containing source IP, target service, time window and failure count instead of making an analyst inspect every event. A network diagram similarly retains relevant devices, connections and trust boundaries.
+    \item \textbf{Algorithmic design}: on each failure, discard events outside the previous 60 seconds, update the source's count, and alert if it exceeds 100. If policy permits, temporarily block the source, log the action and schedule review. Counts require timestamps and a defined window. Consistent automated checks help staff respond quickly, while review accounts for shared IP addresses and false positives.
+\end{itemize}
+
+\textbf{Database design --- a school library}
+\begin{itemize}
+    \item \textbf{Decomposition}: divide the design work into identifying entities and requirements, defining tables/relationships and constraints, then choosing physical storage and indexes. Separate Students, Books and Loans so each represents a clear entity or relationship; Loans references the student and book using keys.
+    \item \textbf{Pattern recognition}: seeing student details copied into many loan records suggests redundancy and update anomalies. Examine functional dependencies to decide how to normalize the design; repeated values alone do not prove a table is incorrectly designed.
+    \item \textbf{Abstraction}: represent students by ID, name and year group, and loans by borrower, book and dates. Exclude medical details because they do not serve this library's purpose. The schema describes logical data without exposing disk layout.
+    \item \textbf{Algorithmic design}: to report overdue loans, combine Loans with Students and Books using their keys, select unreturned loans with a due date before today, and sort by due date. Defined rules produce a repeatable, readable report. SQL describes the required result; the database engine chooses a physical execution plan, which need not follow the written clause order.
+\end{itemize}
+
+\textbf{Machine learning --- an email spam classifier}
+
+Machine learning fits a model to examples so it can make predictions for new inputs, rather than requiring a hand-written rule for every case.
+\begin{itemize}
+    \item \textbf{Decomposition}: separate labelled-data collection, training/validation/test splitting, preprocessing, feature extraction, training, evaluation and deployment. Fit preprocessing on training data to avoid leaking information from evaluation data.
+    \item \textbf{Pattern recognition}: learn statistical associations between spam labels and features such as word frequency, link count and sender characteristics. The aim is generalization to unseen emails; overfitting occurs when a model learns training-specific detail that does not generalize.
+    \item \textbf{Abstraction}: represent an email as a numerical feature vector, such as vocabulary frequencies and link count. In a trained linear or neural classifier, learned weights summarize relationships between those features and labels. This description is model-specific: some ML methods retain training examples, and models can memorize information.
+    \item \textbf{Algorithmic design}: for a neural classifier, initialize weights, process training batches, calculate loss, use backpropagation to find gradients and update weights; repeat subject to a stopping rule based on validation performance. Evaluate the final model on untouched test data, including false positives and false negatives. At deployment, a chosen threshold (for example, spam probability $>0.85$) routes messages to spam or inbox. The threshold trades missed spam against legitimate messages incorrectly filtered; learning and consistent classification reduce manual sorting.
+\end{itemize}
+
+\paragraph{Tracing flowcharts for programming algorithms}
+A \textbf{flowchart} represents an algorithm's control flow. Read from Start and follow arrowheads, usually downwards. At each decision, evaluate the condition using the \emph{current} variable values, then follow only the matching branch. A loop returns to an earlier step. A trace table records changes in variables, tests and outputs; trace all iterations, including the final failed loop test.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{0.96\linewidth}{p{3.5cm} c X}
+\toprule
+\textbf{Symbol} & \textbf{Shape} & \textbf{Meaning} \\
+\midrule
+Start/End & \tikz[baseline=-0.6ex]\node[draw,rounded corners=7pt,minimum width=1.6cm,minimum height=0.55cm]{\scriptsize Start}; & Rounded rectangle or oval: entry or termination point. \\
+Process/Operation & \tikz[baseline=-0.6ex]\node[draw,minimum width=1.6cm,minimum height=0.55cm]{\scriptsize $x\gets x+1$}; & Rectangle: calculation, assignment or processing step. \\
+Input/Output & \tikz[baseline=-0.6ex]\node[draw,trapezium,trapezium left angle=70,trapezium right angle=110,minimum width=1.6cm,minimum height=0.55cm]{\scriptsize Input $x$}; & Parallelogram: read input or display/write output. \\
+Decision & \tikz[baseline=-0.6ex]\node[draw,diamond,aspect=2,inner sep=1.5pt]{\scriptsize $x>0$?}; & Diamond: evaluate a condition; label the outgoing branches Yes/No or True/False. \\
+Flowline & \tikz[baseline=-0.6ex]\draw[-{Stealth}] (0,0)--(1.6,0); & Arrow: direction and order of execution, including loop returns. \\
+Connector & \tikz[baseline=-0.6ex]\node[draw,circle,inner sep=3pt]{\scriptsize A}; & Small labelled circle: continue at the matching connector elsewhere on the same page; avoids long or crossing flowlines. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\textbf{Tracing conventions:} $\gets$ means assignment, so $x\gets x+1$ replaces $x$ with its old value plus one. A comparison such as $x=5$ inside a decision tests equality. Record outputs only when an output symbol is reached. A variable retains its value until assigned again. Check that every route is defined and that a loop makes progress towards termination.
+
+\newpage
+\textbf{Example 1 --- selection: school shop discount}
+
+Input a non-negative purchase total. If it is at least 100 currency units, apply a 10\% discount; otherwise keep the original total. Output the amount payable. Assume valid input and use totals for which rounding is unnecessary in this example.
+\begin{center}
+\begin{tikzpicture}[
+    node distance=7mm,
+    terminal/.style={draw,rounded corners=8pt,minimum width=24mm,minimum height=7mm},
+    process/.style={draw,minimum width=39mm,minimum height=8mm,align=center},
+    io/.style={draw,trapezium,trapezium left angle=70,trapezium right angle=110,minimum height=8mm,align=center},
+    decision/.style={draw,diamond,aspect=2.8,inner sep=2pt,align=center},
+    flow/.style={-{Stealth},thick}]
+\node[terminal] (start) {Start};
+\node[io,below=of start] (input) {Input $total$};
+\node[decision,below=of input] (test) {$total\geq100$?};
+\node[process,below left=10mm and 15mm of test] (yes) {$payable\gets0.9\times total$};
+\node[process,below right=10mm and 15mm of test] (no) {$payable\gets total$};
+\node[io,below=29mm of test] (output) {Output $payable$};
+\node[terminal,below=of output] (end) {End};
+\draw[flow] (start)--(input);
+\draw[flow] (input)--(test);
+\draw[flow] (test.west)-|node[pos=0.25,above]{Yes} (yes.north);
+\draw[flow] (test.east)-|node[pos=0.25,above]{No} (no.north);
+\draw[flow] (yes.south)|-(output.west);
+\draw[flow] (no.south)|-(output.east);
+\draw[flow] (output)--(end);
+\end{tikzpicture}
+\end{center}
+\textbf{Trace table: independent runs}
+\begin{center}
+\begin{tabular}{r c r r}
+\toprule
+Input $total$ & $total\geq100$? & Assigned $payable$ & Output \\
+\midrule
+80 & False & 80 & 80 \\
+100 & True & 90 & 90 \\
+150 & True & 135 & 135 \\
+\bottomrule
+\end{tabular}
+\end{center}
+For input 150, execution follows Start $\to$ input $\to$ decision (Yes) $\to$ discounted assignment $\to$ output 135 $\to$ End. The other assignment is skipped. The boundary input 100 takes the Yes branch because the comparison includes equality.
+
+\newpage
+\textbf{Example 2 --- iteration: sum from 1 to $N$}
+
+Input a non-negative integer $N$. Add each integer from 1 to $N$ and output the total. Initialize the accumulator before the loop; update both the accumulator and counter on each pass.
+\begin{center}
+\begin{tikzpicture}[
+    node distance=7mm,
+    terminal/.style={draw,rounded corners=8pt,minimum width=24mm,minimum height=7mm},
+    process/.style={draw,minimum width=45mm,minimum height=9mm,align=center},
+    io/.style={draw,trapezium,trapezium left angle=70,trapezium right angle=110,minimum height=8mm,align=center},
+    decision/.style={draw,diamond,aspect=2.8,inner sep=3pt},
+    flow/.style={-{Stealth},thick}]
+\node[terminal] (start) {Start};
+\node[io,below=of start] (input) {Input $N$};
+\node[process,below=of input] (init) {$sum\gets0$; $i\gets1$};
+\node[decision,below=of init] (test) {$i\leq N$?};
+\node[process,below=12mm of test] (add) {$sum\gets sum+i$};
+\node[process,below=of add] (inc) {$i\gets i+1$};
+\node[io,right=32mm of test] (output) {Output $sum$};
+\node[terminal,below=of output] (end) {End};
+\draw[flow] (start)--(input);
+\draw[flow] (input)--(init);
+\draw[flow] (init)--(test);
+\draw[flow] (test)--node[right]{Yes}(add);
+\draw[flow] (add)--(inc);
+\draw[flow] (inc.west)--++(-18mm,0)|-(test.west);
+\draw[flow] (test)--node[above]{No}(output);
+\draw[flow] (output)--(end);
+\end{tikzpicture}
+\end{center}
+\textbf{Trace for $N=4$} (``after body'' means after both assignments):
+\begin{center}
+\begin{tabular}{c r r c r r l}
+\toprule
+Test & $i$ before & $sum$ before & $i\leq4$? & $sum$ after body & $i$ after body & Output \\
+\midrule
+1 & 1 & 0 & True & 1 & 2 & --- \\
+2 & 2 & 1 & True & 3 & 3 & --- \\
+3 & 3 & 3 & True & 6 & 4 & --- \\
+4 & 4 & 6 & True & 10 & 5 & --- \\
+5 & 5 & 10 & False & --- & --- & 10 \\
+\bottomrule
+\end{tabular}
+\end{center}
+There are \textbf{four executions of the loop body and five condition tests}. On the final test, $i=5$, so the No branch outputs 10. For the boundary input $N=0$, the first test is false and the output is 0. Forgetting to increment $i$ would cause a non-terminating loop for $N\geq1$; using $i<N$ would omit $N$ from the sum.
+
+\newpage
+\textbf{IA practice --- adapt the room-booking example to a real user}
+\begin{enumerate}
+    \item Identify an accessible user, such as the teacher responsible for shared rooms. Ask how bookings are currently recorded, what goes wrong and which tasks take time. Record their actual needs rather than assuming the illustrative problem applies to them.
+    \item Agree a manageable problem specification and measurable success criteria with that user. Replace the example's proposed deadlines, data volumes and usability targets with requirements justified by the user's situation.
+    \item Explain how the program will transform inputs into outputs, apply all four computational-thinking concepts, and draw a flowchart for a key algorithm such as conflict checking. Explain why automation helps this user and compare it with their current method or an existing booking tool.
+    \item Plan normal, boundary and invalid test data for each criterion; for example, overlapping bookings, adjacent bookings and an end time before the start. Review a prototype with the user and evaluate the results against the agreed criteria, recording remaining limitations.
+\end{enumerate}
+This is a planning exercise: a real project needs evidence from the actual user and testing, rather than invented interview findings or claimed results.
+
+\textbf{B1 completion check:} B1.1.1 covers all six specification components and measurable criteria; B1.1.2 defines and illustrates all four CT concepts; B1.1.3 applies them to software development, data analysis, network security, database design and machine learning, as well as the room-booking problem and IA practice; B1.1.4 supplies all six standard symbols and two worked traces covering sequence, selection and iteration.
+
+
+\endgroup
 \subsection{Programming}
 \subsubsection{Programming fundamentals}
 \subsubsection{Programming constructs}
